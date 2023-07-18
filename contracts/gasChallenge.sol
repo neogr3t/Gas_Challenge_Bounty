@@ -24,13 +24,17 @@ contract gasChallenge {
     //Implement Remaining Gas Optimization Techniques Here
     //Sum of elements in the numbers array should equal 0
     function optimizedFunction() public {
-        uint length = numbers.length;
-        for (uint i; i < length;) {
-            numbers[i] = 0;
+        //Caching State Variable: Storing the array’s length in a variable and use this new variable instead.
+        uint[10] memory stateVar = numbers;
+        uint length = stateVar.length;
 
-            unchecked {
-                ++i;
+        //Implement Uncheck Block
+        unchecked {
+            //For Loop Increment Syntax: Pre-increment (++i) is used in the for loop instead of post-increment (i++). 
+            for (uint i = 0; i < length; ++i) {
+                stateVar[i] = 0;
             }
         }
+        numbers = stateVar;
     }
-}
+ }
