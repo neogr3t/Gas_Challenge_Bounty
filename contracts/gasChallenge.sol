@@ -27,6 +27,7 @@ contract gasChallenge {
         uint length = numbers.length;
         for (uint i; i < length;) {
             numbers[i] = 0;
+
             unchecked {
                 ++i;
             }
